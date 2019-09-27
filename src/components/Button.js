@@ -1,21 +1,35 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { color, space, layout, size } from 'styled-system';
+import { variant, compose, space, color, display, layout, buttonStyle } from 'styled-system';
 import theme from '../theme/index';
-import Box from './Box'
+import {useButtonStyle} from '../theme/buttons'
 
-const Button = styled.button.attrs(props => ({
+const buttonSize = variant({
+  prop: 'size',
+  key: 'buttonSizes'
+})
+
+const styleProps = compose(
+  space,
+  color,
+  display
+);
+
+const Button = styled('button').attrs(props => ({
   onClick: props.disabled ? undefined : props.onClick,
   className: props.disabled ? 'disabled' : ''
 }))`
-  ${space};
-  ${color};
+  ${useButtonStyle(theme)};
+  ${buttonStyle};
+  ${buttonSize};
   ${layout};
-  ${size};
+  ${styleProps};
 `
 
 Button.defaultProps = {
-  theme
+  theme,
+  variant: 'primary',
+  size:    'normal'
 }
 
 Button.propTypes = {

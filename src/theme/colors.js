@@ -39,7 +39,7 @@ const colors = {
   },
 };
 
-colors.primary = colors.orange;
-colors.secondary = colors.grey[400];
+colors.primary = colors.blue;
+colors.secondary = colors.grey;
 
 export default colors;

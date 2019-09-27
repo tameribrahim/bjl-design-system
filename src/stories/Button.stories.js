@@ -1,16 +1,29 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, object } from '@storybook/addon-knobs/react';
+import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
 
 import Button from '../components/Button';
 
-const text = 'Test Button';
-export const button = {
-  color: 'blue[0]',
-  className: 'test-class',
-  m: [ 0, 1, 2 ]
+const variants = {
+  'Primary': 'primary',
+  'Primary Outlined': 'primary-outlined',
+  'Disabled': 'disabled',
+  'Disabled Outlined': 'disabled-outlined',
 };
+const sizes = {
+  'Normal': 'normal',
+  'Small': 'small',
+};
+
+const optionsObj = {
+  display: 'select'
+};
+
+const variantKnob = (defaultOption = 'primary')=> options('Variantss', variants, defaultOption, optionsObj)
+const sizeKnob    = (defaultOption = 'normal')=> options('Sizes', sizes, defaultOption, optionsObj)
+
+const text = 'Save Prefrences';
 
 export const actions = {
   onClick: action('onClick'),
@@ -18,6 +31,6 @@ export const actions = {
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
-  .add('default', () => <Button width={256} {...button} {...actions}>{text}</Button>)
-  .add('Input', () => <Button {...button} as="a" {...actions}>{text}</Button>)
-  .add('disabled', () => <Button disabled {...button} {...actions} {...actions}>{text}</Button>);
+  .add('default', () => <Button variant={variantKnob()} size={sizeKnob()}>{text}</Button>)
+  .add('Input', () => <Button variant="primary-outlined" as="button" {...actions}>{text}</Button>)
+  .add('disabled', () => <Button disabled {...actions} >{text}</Button>);
