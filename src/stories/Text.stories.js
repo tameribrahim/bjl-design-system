@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob as options } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import Text from '../components/Text';
+import Button from '../components/Button';
 import Article from '../examples/Article';
 
-const text = 'Test Text';
-const longText = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
-
-const variants = {
+const textVariants = {
   'Display 1':    'display1',
   'Display 2':    'display2',
   'Heading 1':    'heading1',
@@ -26,10 +25,28 @@ const optionsObj = {
   display: 'select'
 };
 
-const knobObject = (defaultOption = 'body2')=> options('Variants', variants, defaultOption, optionsObj)
+const buttonVariants = {
+  'Primary': 'primary',
+  'Primary Outlined': 'primary-outlined',
+  'Disabled': 'disabled',
+  'Disabled Outlined': 'disabled-outlined',
+};
+const sizes = {
+  'Normal': 'normal',
+  'Small': 'small',
+};
 
-storiesOf('Text', module)
+const variantKnob = (defaultOption = 'primary')=> options('Variantss', buttonVariants, defaultOption, optionsObj)
+const sizeKnob    = (defaultOption = 'normal')=> options('Sizes', sizes, defaultOption, optionsObj)
+
+export const actions = {
+  onClick: action('onClick'),
+};
+
+const knobObject = (defaultOption = 'body2')=> options('Variants', textVariants, defaultOption, optionsObj)
+
+storiesOf('Primitives', module)
   .addDecorator(withKnobs)
-  .add('Short text', () => <Text variant={knobObject()}>{text}</Text>)
-  .add('Long text', () => <Text variant={knobObject()}>{longText}</Text>)
+  .add('Text', () => <Text variant={knobObject()}>{text('Text', 'Test Text')}</Text>)
+  .add('Button', () => <Button variant={variantKnob()} size={sizeKnob()}>{text('Text', 'Save Preferences')}</Button>)
   .add('Article', () => <Article />);

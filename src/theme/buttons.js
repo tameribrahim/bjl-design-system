@@ -1,5 +1,3 @@
-import {getThemeAttribute} from '../lib/lib';
-
 export const getVariants = (theme) => {
   return ({
     buttons: {

@@ -118,7 +118,7 @@ export const variants = {
     body1: {
       fontWeight: 400,
       fontSize: 'lg',
-      fontFamily: 'font2',
+      fontFamily: 'font1',
       lineHeight: 400,
       margin: 0,
       marginBottom: [4]
