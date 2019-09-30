@@ -48,5 +48,4 @@ const knobObject = (defaultOption = 'body2')=> options('Variants', textVariants,
 storiesOf('Primitives', module)
   .addDecorator(withKnobs)
   .add('Text', () => <Text variant={knobObject()}>{text('Text', 'Test Text')}</Text>)
-  .add('Button', () => <Button variant={variantKnob()} size={sizeKnob()}>{text('Text', 'Save Preferences')}</Button>)
-  .add('Article', () => <Article />);
+  .add('Button', () => <Button variant={variantKnob()} size={sizeKnob()} {...actions}>{text('Text', 'Save Preferences')}</Button>);

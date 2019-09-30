@@ -29,7 +29,7 @@ const Button = styled('button').attrs(props => ({
 Button.defaultProps = {
   theme,
   variant: 'primary',
-  size:    'normal'
+//   size:    'normal'
 }
 
 Button.propTypes = {

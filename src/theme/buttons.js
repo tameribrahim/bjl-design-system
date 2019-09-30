@@ -41,6 +41,7 @@ export const getVariants = (theme) => {
 )}
 
 export const useButtonStyle = theme => (`
+  cursor:         pointer;
   font-size:      ${theme.fontSizes.sm};
   padding:        ${theme.space[0]} ${theme.space[4]};
   border-radius:  ${theme.radii[1]};
