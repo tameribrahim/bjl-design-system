@@ -39,7 +39,6 @@ export const useButtonStyle = theme => (`
   text-transform: uppercase;
   letter-spacing: ${getThemeAttribute('letterSpacings.300')(theme)};
   &:hover {
-    background-color: ${getThemeAttribute('colors.button.hoverBg')(theme)};
+    background-color: ${getThemeAttribute('colors.white')(theme)};
   }
 `)
-  // background-image: linear-gradient(-180deg, ${getThemeAttribute('colors.blue.200')(theme)} 0%, ${getThemeAttribute('colors.blue.600')(theme)} 90%);
