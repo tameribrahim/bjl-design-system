@@ -30,7 +30,8 @@ export const getVariants = (theme) => {
     },
     buttonSizes: {
       normal: {
-        height: theme.space[8]
+        height: theme.space[8],
+        minWidth: '104px'
       },
       small: {
         height: theme.space[6]
