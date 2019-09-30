@@ -37,16 +37,16 @@ const typography = {
     font2: fontStack(['Source Serif Pro', 'serif'])
   },
   fontSizes: {
-    xs: "0.562em",
-    sm: "0.75em",
-    md: "1em",
-    lg: "1.25em",
-    xl: "1.33em",
-    "2xl": "1.78em",
-    "3xl": "2.375em",
-    "4xl": "3.18em",
-    "5xl": "4.2em",
-    "6xl": "5.61em",
+    xs:    '9px',
+    sm:    '12px',
+    md:    '16px',
+    lg:    '20px',
+    xl:    '21px',
+    "2xl": '28px',
+    "3xl": '38px',
+    "4xl": '50px',
+    "5xl": '68px',
+    "6xl": '90px',
   },
 };
 

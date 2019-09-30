@@ -6,39 +6,46 @@ export const getVariants = (theme) => {
       primary: {
         backgroundColor: theme.colors.primary[400],
         color: theme.colors.white,
+        '&:hover': {
+          backgroundColor: theme.colors.primary[600]
+        }
       },
       'primary-outlined': {
         color: theme.colors.primary[400],
-        borderColor: theme.colors.primary[400]
+        borderColor: theme.colors.primary[400],
+        '&:hover': {
+          backgroundColor: theme.colors.primary[400],
+          color: theme.colors.white
+        }
       },
       disabled: {
-        backgroundColor: theme.colors.grey[400],
-        color: theme.colors.grey[600]
+        backgroundColor: theme.colors.grey[300],
+        borderColor: theme.colors.grey[300],
+        color: theme.colors.grey[500],
+        cursor: 'not-allowed',
       },
       'disabled-outlined': {
-        color: theme.colors.grey[400],
-        borderColor: theme.colors.grey[400]
+        color: theme.colors.grey[500],
+        borderColor: theme.colors.grey[500],
+        cursor: 'not-allowed',
       },
     },
     buttonSizes: {
       normal: {
-        fontSize: theme.fontSizes.md,
-        padding: `8px 16px`
+        height: theme.space[8]
       },
       small: {
-        fontSize: theme.fontSizes.sm,
-        padding: `8px 12px`
+        height: theme.space[6]
       }
     }
   }
 )}
 
 export const useButtonStyle = theme => (`
-  padding: 6px 12px;
-  border-radius: 3px;
+  font-size:      ${theme.fontSizes.sm};
+  padding:        ${theme.space[0]} ${theme.space[4]};
+  border-radius:  ${theme.radii[1]};
   text-transform: uppercase;
-  letter-spacing: ${getThemeAttribute('letterSpacings.300')(theme)};
-  &:hover {
-    background-color: ${getThemeAttribute('colors.white')(theme)};
-  }
+  letter-spacing: ${theme.letterSpacings[300]};
+  transition:     0.2s;
 `)
